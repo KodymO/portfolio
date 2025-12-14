@@ -42,6 +42,7 @@
         border-radius: 25px;
         width: calc(100% - 80px);  /* šířka o 40px z každé strany menší */
         max-width: 1200px;         /* 🟢 volitelně – omezí maximální šířku, aby nebyla přes celý monitor */
+        
     }
 
 
@@ -53,6 +54,7 @@
         max-width: 1200px;              /* omezí maximální šířku karty */
         background-color: rgba(88, 88, 88, 0.336);
         border-radius: 25px;
+        box-shadow:0 0 20px rgba(255,255,255,0.2);
     }
 
 
@@ -118,6 +120,9 @@
     border: none;
     border-radius: 15px;
   }
+/*slideshow seting*/
+ 
+
 
   </style>
 </head>
@@ -151,6 +156,109 @@
     
     
   </div>
+
+
+  <!-- slideshow -->
+ <div class="w3-panel w3-card">
+  <h1 class="hed1">Záznam na ZUŠ - maraton</h1>
+
+  <h3 style="text-align-last:center;color:#fff;">
+    Náplň práce: Kamera + setup techniky
+  </h3>
+
+  <div style="display:flex;flex-direction:column;align-items:center;">
+
+    <!-- RESPONSIVE WRAPPER -->
+    <div style="
+      position:relative;
+      width:100%;
+      
+      padding-bottom:56.25%;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 0 20px rgba(255,255,255,0.2);
+    ">
+      <iframe
+        id="yt-slideshow"
+        style="
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          border:none;
+        "
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- NAVIGAČNÍ TEČKY -->
+    <div id="dots" style="margin-top:12px;display:flex;gap:8px;"></div>
+  </div>
+</div>
+
+<script>
+const videos = [
+  "6qKF2TxpuJY",
+  "PT9wGuyi8BY",
+  "98q8MX59L4k",
+  "H3DxvvUam-I",
+  "2g0JQRQZRNo",
+  "Yto-En4BSH4",
+  "X-clR_kUAS8",
+  "vfiQFiJouPE",
+  "AIH3mEbw4_M",
+  "kiKNZyasOkQ",
+  "-_lXiYbmxiU",
+  "m-PWikRnUu0",
+  "tMFJH3T1M9I",
+  "Ke9zyYUJVYE"
+];
+
+let index = 0;
+const player = document.getElementById("yt-slideshow");
+const dotsContainer = document.getElementById("dots");
+
+function playVideo(i) {
+  index = i;
+  player.src = `https://www.youtube.com/embed/${videos[index]}?autoplay=1&rel=0`;
+  updateDots();
+}
+
+function updateDots() {
+  [...dotsContainer.children].forEach((dot, i) => {
+    dot.style.opacity = i === index ? "1" : "0.4";
+  });
+}
+
+videos.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.style.width = "10px";
+  dot.style.height = "10px";
+  dot.style.borderRadius = "50%";
+  dot.style.background = "#fff";   // viditelné na tmavém pozadí
+  dot.style.cursor = "pointer";
+  dot.style.opacity = "0.4";
+  dot.onclick = () => playVideo(i);
+  dotsContainer.appendChild(dot);
+});
+
+playVideo(0);
+</script>
+
+
+     
+
+
+        
+ 
+    
+    
+  </div>
+
+
+
 
   <div class="w3-panel w3-card">
     <h1 class="hed1">Rybova Česká mše vánoční</h1>
