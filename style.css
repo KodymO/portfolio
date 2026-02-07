@@ -1,8 +1,28 @@
 /* =========================================
-   1. ZÁKLADNÍ NASTAVENÍ A RESET
+   1. ZÁKLADNÍ NASTAVENÍ
    ========================================= */
 * {
     box-sizing: border-box;
+}
+
+/* --- GLOBÁLNÍ NASTAVENÍ TEXTU --- */
+body, h1, h2, h3, p, a, div {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 500 !important; /* Tloušťka Medium */
+    -webkit-font-smoothing: antialiased; /* Vyhlazení pro lepší čitelnost v dark mode */
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.3px; /* Jemný rozestup pro moderní vzhled */
+}
+
+/* Jemná úprava pro odstavce, aby text nebyl moc "nahuštěný" */
+p {
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95); /* Téměř čistě bílá */
+}
+
+/* Úprava odkazu v patičce pro konzistenci */
+.footer-mail {
+    font-weight: 500 !important;
 }
 
 body {
@@ -282,7 +302,7 @@ img {
 
 /* Efekt při najetí myší */
 .gallery-grid img:hover {
-    transform: scale(1.03);
+    transform: scale(1.3);
     /* Přidal jsem jemný stín při najetí pro hloubku */
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
 }
