@@ -8,97 +8,12 @@
   <!-- W3.CSS -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background-color: #000;
-      font-family: 'Roboto', sans-serif;
-      color: white;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    /* Světlý stín po okrajích (vignette efekt) */
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      box-shadow: inset 0 0 200px 60px rgba(255, 255, 255, 0.2);
-      z-index: 0;
-    }
-
-    /* Navigační lišta */
-    .w3-bar {
-        position: relative;
-        z-index: 2;
-        padding: 10px 40px;
-        margin: 10px auto;         /* 🟢 vycentrování vodorovně */
-        border-radius: 25px;
-        width: calc(100% - 80px);  /* šířka o 40px z každé strany menší */
-        max-width: 1200px;         /* 🟢 volitelně – omezí maximální šířku, aby nebyla přes celý monitor */
-    }
-
-
-    /* Karta obsahu */
-    .w3-card {
-        margin: 15px auto 40px;        /* shora 80px, dole 40px, vycentrováno vodorovně */
-        padding: 40px;                  /* odsazení obsahu uvnitř karty */
-        width: calc(100% - 80px);       /* 40px odsazení z každé strany */
-        max-width: 1200px;              /* omezí maximální šířku karty */
-        background-color: rgba(88, 88, 88, 0.336);
-        border-radius: 25px;
-        box-shadow:0 0 20px rgba(255,255,255,0.2);
-    }
-
-
-    .hed1 {
-      text-align: center;
-    }
-
-    /* Flexbox pro obrázek a text */
-    .content-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-      flex-wrap: wrap; /* zalomení, když se nevejde */
-    }
-
-    .side-image {
-      width: 350px;
-      max-width: 100%;
-      height: auto;
-      border-radius: 15px;
-      flex-shrink: 0; /* zabrání deformaci obrázku */
-    }
-
-    .side-text {
-      flex: 1; /* text se roztáhne dle místa */
-      min-width: 250px; /* při zmenšení začne zalamovat */
-      text-align: left;
-    }
-
-    /* ✅ Responzivní chování: na malých obrazovkách se obrázek přemístí pod text */
-    @media (max-width: 768px) {
-      .content-row {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .side-text {
-        text-align: center;
-      }
-
-      .side-image {
-        margin-top: 20px;
-      }
-    }
+   
   </style>
 </head>
 <body>
@@ -120,28 +35,32 @@
 
 
   <!-- Zápatí -->
-  <footer class="w3-card" style="margin: 40px auto 20px; padding: 20px; max-width: 1200px; text-align: center; background-color: rgba(50,50,50,0.5);">
-    <h1>Kontakt</h1>
-    <p>Email: <a href="mailto:kodymo.prac@gmail.com" class="w3-text-white w3-hover-text-light-grey">kodymo.prac@gmail.com</a></p>
+ <footer class="w3-card w3-container w3-center" style="margin: 40px auto 20px; padding: 40px; max-width: 1200px; background-color: rgba(88, 88, 88, 0.336); border-radius: 25px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);">
+  
+  <h1 class="hed1">Kontakt</h1>
+  <p>Email: <a href="mailto:kodymo.prac@gmail.com" class="w3-text-white">kodymo.prac@gmail.com</a></p>
+  
+  <div class="w3-section">
+    <a href="https://www.instagram.com/andy31500/" target="_blank" class="w3-button w3-circle w3-black w3-text-white w3-hover-white w3-hover-text-black">
+      <i class="fa fa-instagram"></i>
+    </a>
     
-    <!-- Ikony sociálních sítí -->
-    <div style="margin-top: 10px;">
-      <a href="https://www.instagram.com/andy31500/" target="_blank" class="w3-button w3-black w3-round-large w3-hover-grey" style="margin:0 5px;">
-        <i class="fa fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61580417964563" target="_blank" class="w3-button w3-black w3-round-large w3-hover-grey" style="margin:0 5px;">
-        <i class="fa fa-facebook"></i>
-      </a>
-      <a href="kodymo.prac@gmail.com" class="w3-button w3-black w3-round-large w3-hover-grey" style="margin:0 5px;">
-        <i class="fa fa-envelope"></i>
-      </a>
-    </div>
+    <a href="https://www.facebook.com/profile.php?id=61580417964563" target="_blank" class="w3-button w3-circle w3-black w3-text-white w3-hover-white w3-hover-text-black">
+      <i class="fa fa-facebook"></i>
+    </a>
     
-    <p style="margin-top: 15px;">© 2025 Ondřej Kodym</p>
-  </footer>
+    <a href="mailto:kodymo.prac@gmail.com" class="w3-button w3-circle w3-black w3-text-white w3-hover-white w3-hover-text-black">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </div>
 
-  <!-- Font Awesome pro ikony -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="w3-border-top w3-border-grey w3-padding-16 w3-margin-top w3-small w3-opacity">
+    <p>&copy; <span id="year"></span> | kodymo.pixel</p>
+  </div>
+</footer>
 
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

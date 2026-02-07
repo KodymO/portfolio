@@ -1,0 +1,297 @@
+/* =========================================
+   1. ZÁKLADNÍ NASTAVENÍ A RESET
+   ========================================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #000;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    box-shadow: inset 0 0 200px 60px rgba(255, 255, 255, 0.2);
+    z-index: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =========================================
+   2. HLAVIČKA A NAVIGACE
+   ========================================= */
+.w3-bar {
+    position: relative;
+    z-index: 2;
+    padding: 10px 40px;
+    margin: 10px auto;
+    border-radius: 25px;
+    width: calc(100% - 80px);
+    max-width: 1200px;
+}
+
+.hed1 {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================
+   3. KARTY A OBSAH
+   ========================================= */
+.w3-card {
+    position: relative;
+    z-index: 1;
+    margin: 15px auto 40px;
+    padding: 40px;
+    width: calc(100% - 80px);
+    max-width: 1200px;
+    background-color: rgba(88, 88, 88, 0.336);
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   4. ROZLOŽENÍ OBSAHU (DESKTOP)
+   ========================================= */
+.content-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: nowrap; /* Na desktopu zůstanou vedle sebe */
+}
+
+.side-image-small {
+    width: 200px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    height: auto;
+    border-radius: 15px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.side-text {
+    flex: 1;
+    text-align: left;
+}
+
+/* =========================================
+   5. VIDEO KONTEJNER
+   ========================================= */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    margin-top: 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* =========================================
+   6. RESPONZIVITA (MOBILY)
+   ========================================= */
+@media (max-width: 768px) {
+    .w3-card, .w3-bar {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .content-row {
+        flex-direction: column; /* Na mobilu pod sebe */
+        align-items: center;
+        text-align: center;
+    }
+
+    .side-text {
+        text-align: center;
+    }
+
+    .side-image-small {
+        margin-top: 20px;
+        width: 100% !important;
+        max-width: 250px !important;
+    }
+} /* <--- TATO ZÁVORKA TI CHYBĚLA */
+
+/* =========================================
+   7. PROFILOVÁ SEKCE (POKUD JI POUŽÍVÁŠ)
+   ========================================= */
+.profile-section {
+    text-align: center;
+    padding: 40px;
+}
+
+.main-profile-img {
+    width: 180px !important;
+    height: 180px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.profile-bio {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ========================================= 
+ 8. PATIČKA (FOOTER) 
+ ========================================= */
+.footer-card {
+    margin: 40px auto 20px !important;
+    padding: 40px !important;
+    width: calc(100% - 80px);
+    max-width: 1200px;
+    background-color: rgba(88, 88, 88, 0.336) !important; /* Stejná průhlednost jako u karet */
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Stejná záře */
+    text-align: center;
+}
+
+.footer-mail {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-mail:hover {
+    color: #ccc;
+}
+
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Úprava ikon podle W3 standardu */
+.social-links .w3-button {
+    width: 50px;
+    height: 50px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin: 0 !important;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .footer-card {
+        width: 95% !important;
+        padding: 20px !important;
+    }
+}
+
+/* Styl pro ikonky v patičce */
+.social-btn {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Jemné prosvětlení kruhu */
+    color: white !important;      /* VYNUTÍ BÍLOU BARVU IKONY */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important; /* Tenký rámeček */
+    width: 50px;
+    height: 50px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease !important;
+}
+
+.social-btn i {
+    font-size: 20px !important;   /* Velikost samotné ikony */
+}
+
+.social-btn:hover {
+    background-color: white !important;
+    color: black !important;      /* Při najetí se barvy prohodí */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Záře */
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   9. FOTOGALERIE
+   ========================================= */
+
+/* Kontejner pro celou galerii */
+#github-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 2rem 0;
+}
+
+/* Mřížka fotek - responzivní nastavení */
+.gallery-grid {
+    display: grid;
+    /* Automaticky skládá fotky, minimální šířka fotky 220px */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px; /* Trochu větší mezera pro vzdušnost */
+}
+
+/* Styl samotných obrázků */
+.gallery-grid img {
+    height: 300px;
+    width: 100%;
+    /* 'contain' zachová celý obrázek, 'cover' by ho ořízl do čtverce */
+    object-fit: contain; 
+    /* Bílé pozadí pro fotky, které nevyplní celý prostor 300px */
+    background-color: rgb(255, 255, 255); 
+    border-radius: 12px;
+    transition: transform .3s ease, box-shadow .3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Efekt při najetí myší */
+.gallery-grid img:hover {
+    transform: scale(1.03);
+    /* Přidal jsem jemný stín při najetí pro hloubku */
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
+}
+
+/* Úprava nadpisů v kartách s fotkami */
+.w3-card h2 {
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid rgba(204, 204, 204, 0.3); /* Trochu průhlednější linka */
+    padding-bottom: 8px;
+    text-transform: capitalize;
+}
