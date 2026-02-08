@@ -94,6 +94,20 @@ function updateModalContent() {
     const proj = myVideoProjects[currentProj];
     const content = document.getElementById('modalContent');
     
+    // Kontrola, zda existuje alespoň jedno video a není to prázdný řetězec
+    if (!proj.videos || proj.videos.length === 0 || proj.videos[0] === "") {
+        content.innerHTML = `
+            <div class="w3-container w3-center w3-padding-64" style="color: white; background: #222; border-radius: 15px;">
+                <i class="fa fa-exclamation-triangle" style="font-size:48px;color:#f44336"></i>
+                <h2 style="margin-top:20px;">Chybí video</h2>
+                <p>Omlouváme se, ale pro tento projekt není k dispozici žádný záznam.</p>
+            </div>`;
+        document.getElementById('modalTitle').innerText = proj.title;
+        document.getElementById('modalDesc').innerText = proj.desc;
+        return;
+    }
+
+    // Pokud video existuje, vykreslíme přehrávač
     let html = `
         <div class="video-container">
             <iframe src="${proj.videos[currentVid]}?autoplay=1" allowfullscreen></iframe>
