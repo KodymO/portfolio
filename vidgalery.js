@@ -39,17 +39,27 @@ async function loadTableData() {
 
 function buildVidGallery() {
     const container = document.getElementById('vid-gallery-container');
-    if (!container || myVideoProjects.length === 0) return;
-    container.innerHTML = ""; // Vyčistit před načtením
+    if (!container) return;
+    container.innerHTML = ""; 
 
     myVideoProjects.forEach((proj, index) => {
-        const thumbUrl = `https://img.youtube.com/vi/${proj.thumbID}/maxresdefault.jpg`;
+        let thumbUrl;
+
+        // Kontrola, jestli je v thumbID celá URL nebo jen kód
+        if (proj.thumbID.startsWith('http')) {
+            // Pokud začíná na http, je to přímý odkaz na obrázek
+            thumbUrl = proj.thumbID;
+        } else {
+            // Jinak je to YouTube ID a složíme URL pro náhled
+            thumbUrl = `https://img.youtube.com/vi/${proj.thumbID}/maxresdefault.jpg`;
+        }
+        
         const div = document.createElement('div');
         div.className = 'vid-gallery-item';
         div.onclick = () => openModal(index);
         div.innerHTML = `
             <img src="${thumbUrl}" alt="${proj.title}" 
-                 onerror="this.src='https://img.youtube.com/vi/${proj.thumbID}/hqdefault.jpg'">
+                 onerror="handleImageError(this, '${proj.thumbID}')">
             <div class="vid-item-text">
                 <h3>${proj.title}</h3>
                 <p>${proj.desc}</p>
@@ -57,6 +67,17 @@ function buildVidGallery() {
         `;
         container.appendChild(div);
     });
+}
+
+// Pomocná funkce pro případ, že se obrázek nenačte
+function handleImageError(img, thumbID) {
+    // Pokud to bylo YouTube ID a nenašel se maxresdefault, zkusíme nižší kvalitu
+    if (!thumbID.startsWith('http')) {
+        img.src = `https://img.youtube.com/vi/${thumbID}/hqdefault.jpg`;
+    } else {
+        // Pokud selhal i přímý odkaz, dáme tam černý placeholder
+        img.src = 'https://via.placeholder.com/600x400/000000/FFFFFF?text=Náhled+nenalezen';
+    }
 }
 
 // Funkce openModal, updateModalContent, nextVid, prevVid a closeModal 
