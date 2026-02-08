@@ -4,7 +4,8 @@ const images = {
     "images/obr2.jpg",
     "images/obr3.jpg",
     "images/obr4.jpg",
-    "images/obr5.jpg"
+    "images/obr5.jpg",
+    "images/_1023711-2.jpg"
   ],
   "Krajina": [
     "images/obr10.jpg",

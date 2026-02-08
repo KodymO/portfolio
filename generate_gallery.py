@@ -39,4 +39,4 @@ with open(output_file, "w", encoding="utf-8") as f:
     f.write("const images = " + json.dumps(gallery, indent=2) + ";")
 
 total_images = sum(len(v) for v in gallery.values())
-print(f"✅ Vygenerováno {total_images} obrázků do '{output_dir}' a vytvořen '{output_file}'")
+print(f"OK: Vygenerovano {total_images} obrazku do '{output_dir}' a vytvoren '{output_file}'")
